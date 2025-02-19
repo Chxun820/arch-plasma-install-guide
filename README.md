@@ -158,13 +158,13 @@ As of now, you don't have to worry about the timezone, just make sure that the U
 > :warning: Be extremely careful when managing your disks, incase you delete your precious data then DON'T blame me.
 
 ### Disk Partitioning
-We are going to make two partitions on our HDD, `EFI BOOT & ROOT` using `gdisk`.
+We are going to make two partitions on our HDD, `EFI BOOT & ROOT` using `fdisk`.
 - **IMPORTANT**:  Do not make a `/boot` partition if you are installing on an MBR system
 - If you have a brand new HDD or if no partition table is found, then create GPT Partition Table by pressing `g`.
 ```
-gdisk /dev/[disk name] # If you are on an EFI system
-fdisk /dev/[disk name] # If you are on an MBR system
+fdisk /dev/[disk name]
 ```
+> **Note**: fdisk also supports GPT since util-linux 2.23.
 - [disk name] = device to partition, find yours by running `lsblk`, this shows all the mountpoints and partitions of a disk.
 - We will be using separate partitions for our `/`, `/boot`, `/swap` & `/home`.
 - Firstly, we will initialise the disk by using the commands below:
