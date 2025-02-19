@@ -758,9 +758,9 @@ sudo pacman -S pacman-contrib
 
 To manually clean pacman cache, run
 ```
-sudo paccache -rk
+sudo paccache -rk[num]
 ```
-Where, *k* indicates to keep "num" of each package in the cache.
+Where, *k* indicates to keep "num" of each package in the cache. By default, it's 3.
 
 #### To automate paccache process
 
@@ -781,7 +781,7 @@ Target = *
 [Action]
 Description = Cleaning pacman cache...
 When = PostTransaction
-Exec = /usr/bin/paccache -rk
+Exec = /usr/bin/paccache -rk1
 ```
 save & exit.
 
